@@ -1,15 +1,17 @@
 package DBS;
-
+//N.A.
 public class Schaf extends Einheit{
-	public void attackiere(Einheit e) throws SchafException
+	//hier, falls ein Schaf angreift, soll eine Exception geworfen werden, anstatt wenn eines angegriffen wird
+	
+	public void werdeAngegriffen(int dmgRec) throws SchafException
 	{
-		throw new SchafException();
-	}
-	public void werdeAngegriffen(int dmgRec)
-	{
-		life-=dmgRec;
-		if(!lebtNoch()){System.out.println("Ein Schaf fiel den Horden zum Opfer!");return;}
-		System.out.println("Ein Schaf versucht zu fliehen!");
+		super.werdeAngegriffen(dmgRec);
+		//falls ein Schaf downed, wird dies ausgegeben
+		if(!lebtNoch())throw new SchafException ("Ein Schaf fiel den Horden zum Opfer!");
+		//Standard-phrase, falls ein Schaf angegriffen wird
+		else
+			throw new SchafException("Ein Schaf versucht zu fliehen!");
+		
 	}
 	public String toString()
 	{

@@ -6,7 +6,7 @@ public class Musiker {
 	 * @param newName Name, den der Musiker erhalten soll
 	 * @throws Exception falls mehr als 4 Musiker existieren
 	 */
-	Musiker(String newName) throws Exception
+	private Musiker(String newName) throws Exception
 	{
 		if(Quartett.anzMusiker==4)
 		{

@@ -7,7 +7,7 @@ public class Kampf {
 	
 	private int laenge = 10;
 	private Einheit[] einheiten;
-	public static int counter=0;
+	public static int counter=0;	//sieht
 
 	public static void main(String[] args){
 		Kampf kampf = new Kampf(10);
@@ -61,7 +61,7 @@ public class Kampf {
 		str += "-----------------";
 		return str;
 	}
-//a)	
+//a)	N.A.
 	/**
 	 * gibt die naechste  anzugreifende Einheit aus
 	 * @param angreiferPosition	die Einheit, die nun angreifen soll
@@ -69,23 +69,19 @@ public class Kampf {
 	 */
 	private Einheit findeNaechstesZiel(int angreiferPosition) {
 		if(einheiten[angreiferPosition] instanceof Schaf)return null;
-//		System.out.println("AP: "+angreiferPosition);
-		for(int i=angreiferPosition+1;i!=angreiferPosition;i++)
+		for(int i=angreiferPosition+1;i!=angreiferPosition;++i)
 		{
 			if(i>=laenge)i=0;
-//			System.out.print("i: "+i+"\n");
-			counter++;		//emergency brake; falls zu lange nichts passiert, ist der Kampf vorbei
+			//beugt vor allem vor Fehlern bei besonders kleinen Anzahlen an Kaempfern vor
+			counter++;		//emergency brake; falls zu lange nichts passiert, ist der Kampf vorbei, bei sehr vielen Angreifern fuehrt dies zu bugs, wenn 1000 nicht erhoeht wird
 			if(counter>1000)
 			{
-				//System.out.println("overflow");
 				break;
 			}
 			if(einheiten[angreiferPosition].kannAngreifen(einheiten[i])&&einheiten[i].lebtNoch())
 			{
 				return einheiten[i];
 			}
-			else
-			continue;
 		}
 		return einheiten[angreiferPosition];
 	}
@@ -104,11 +100,7 @@ public class Kampf {
 				if(ziel == angreifer) // in diesem Fall wurde kein gueltiges Ziel gefunden => Kampfende
 					return angreifer;
 				if(ziel != null)
-					try {
 						angreifer.attackiere(ziel);
-					} catch (SchafException e) {
-						angreiferPosition++;
-					}
 			}
 			angreiferPosition++;
 			if(angreiferPosition >= laenge)
@@ -116,5 +108,4 @@ public class Kampf {
 			
 		}
 	}
-		
 }

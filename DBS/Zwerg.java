@@ -1,5 +1,5 @@
 package DBS;
-
+//N.A.
 public class Zwerg extends Einheit implements Krieger, SchwereRuestung, Fernkampf{
 
 	public boolean kannAngreifen(Einheit target) 

@@ -1,16 +1,9 @@
 package DBS;
 
 public class SchafException extends Exception{
-	SchafException()
+	public SchafException(String msg)
 	{
-//		System.out.println("sheep attacked");
+		
+		super(msg);
 	}
-//	public static void main(String[] args)
-//	{
-//		try{}
-//		catch(Exception e)
-//		{
-//			System.out.println("sheep attacked");
-//		}
-//	}
 }

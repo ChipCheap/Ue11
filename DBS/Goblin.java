@@ -1,8 +1,8 @@
 package DBS;
-
+//N.A.
 public class Goblin extends Einheit implements Krieger, Gift, Fernkampf{
 
-	Goblin()
+	public Goblin()
 	{
 		super();
 	}

@@ -1,5 +1,5 @@
 package DBS;
-
+//N.A.
 public class Mensch extends Einheit implements Krieger, SchwereRuestung, Fernkampf{
 
 	public boolean kannAngreifen(Einheit target) 

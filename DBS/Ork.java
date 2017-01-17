@@ -1,8 +1,8 @@
 package DBS;
-
+//N.A.
 public class Ork extends Einheit implements Krieger, SchwereRuestung{
 
-	Ork()
+	public Ork()
 	{
 		super();
 	}

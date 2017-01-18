@@ -1,8 +1,7 @@
 package DBS;
 //N.A.
 public class Schaf extends Einheit{
-	//hier, falls ein Schaf angreift, soll eine Exception geworfen werden, anstatt wenn eines angegriffen wird
-	
+	//N.A. Exceptionwurf bei Angriff eines Schafes
 	public void werdeAngegriffen(int dmgRec) throws SchafException
 	{
 		super.werdeAngegriffen(dmgRec);

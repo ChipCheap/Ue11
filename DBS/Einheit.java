@@ -9,6 +9,9 @@ public abstract class Einheit implements Comparable<Einheit>{
 	protected int life;
 	protected int basedmg;
 	protected int init;
+	/**
+	 * erstellt neue Einheit mit zufaelligem init, festem Leben und booleans fuer Sonder-Eigenschaften werden gesetzt
+	 */
 	public Einheit()
 	{
 		armor=(this instanceof SchwereRuestung);
@@ -20,7 +23,17 @@ public abstract class Einheit implements Comparable<Einheit>{
 		basedmg=2;
 		if(ranged)basedmg+=2;
 	}
+	/**
+	 * deafault Methode genutzt fuer Schaf
+	 * @param target Einheit
+	 * @return false
+	 */
 	public boolean kannAngreifen(Einheit target){return false;}
+	/**
+	 * Schadensberechnung fuer eine angegriffene Einheit
+	 * @param dmgRec eingehender Schaden
+	 * @throws SchafException falls Schaf attackiert wird, wird dies ausgegeben (ziemlich unnoetig ~.~)
+	 */
 	public void werdeAngegriffen(int dmgRec) throws SchafException	//damage received
 	{
 		//falls Ruestung getragen wird, wird dmg halbiert
@@ -30,10 +43,18 @@ public abstract class Einheit implements Comparable<Einheit>{
 		//falls ein Krieger downgeht, dann wird dies ausgegeben, ¬N.A.
 		if(!lebtNoch()&&this instanceof Krieger)System.out.println(this+" ist gefallen!");
 	}
+	/**
+	 * gibt aus, ob eine Einheit noch Leben hat
+	 * @return boolean, ob Einheit noch lebt
+	 */
 	public boolean lebtNoch()
 	{
 		return life>0;
 	}
+	/**
+	 * ueberprueft, ob Ziel angegriffen werden kann und fuegt diesem dann Schaden zu
+	 * @param target andere Einheit
+	 */
 	public void attackiere(Einheit target) 
 	{
 		if(!this.lebtNoch())return;
